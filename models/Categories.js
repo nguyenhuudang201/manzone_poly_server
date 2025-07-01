@@ -19,4 +19,4 @@ const CategoriesSchema = new mongoose.Schema( // Danh muc san pham
     }
 
 );
-module.exports= momgoose.model('DanhMucSanPham',CategoriesSchema);
+module.exports= mongoose.model('DanhMucSanPham',CategoriesSchema);

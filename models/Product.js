@@ -2,7 +2,7 @@ const { ObjectId, Timestamp } = require("bson");
 const { timeStamp } = require("console");
 const { type } = require("os");
 
-const mongoose = require(mongoose);
+const mongoose = require('mongoose');
 
 const ProductSchema = new mongoose.Schema( // san pham
     {

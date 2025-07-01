@@ -14,10 +14,34 @@ mongoose.connect(process.env.MONGO_URI,)
 .then(() => console.log("✅ Kết nối MongoDB thành công"))
 .catch(err => console.error("❌ Lỗi kết nối MongoDB:", err));
 
-// Route mẫu (bạn có thể thay bằng routes thực tế sau)
-app.get("/", (req, res) => {
-  res.send("Manzone Poly API đang chạy...");
-});
+
+//Product
+const productRoutes = require('./routes/productRoute');
+console.log('productRoute:', productRoutes);
+app.use('/api/products',productRoutes);
+//Brand
+const brandRoutes = require('./routes/brandRoute');
+console.log('brandRoute:', brandRoutes);
+app.use('/api/brands',brandRoutes);
+//User
+const userRoutes = require('./routes/userRoute');
+console.log('userRoute:', userRoutes);
+app.use('/api/users',userRoutes);
+//CartItem
+const cartItemRoutes = require('./routes/cartItemRoute');
+console.log('cartItemRoute:', cartItemRoutes);
+app.use('/api/cartItems', cartItemRoutes);
+//Categorie 
+const categorieRoutes = require('./routes/categorieRoute');
+app.use('/api/categories', categorieRoutes);
+//Order
+const orderRoutes = require('./routes/oderRoute');
+app.use('/api/orders', orderRoutes);
+//Review
+const reviewRoutes = require('./routes/reviewRoute');
+app.use('/api/reviews', reviewRoutes);
+//Wishlist
+const wishlistRoutes = require('./routes/wishListRoute');
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
